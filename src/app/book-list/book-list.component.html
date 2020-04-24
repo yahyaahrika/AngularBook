@@ -1,0 +1,16 @@
+<table class="table table-bordered table-hover ">
+    <thead>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Number Of Pages</th>
+        <th>Date</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of service.Book">
+            <th>{{item.title}}</th>
+            <th>{{item.author}}</th>
+            <th>{{item.numberOfPages}}</th>
+            <th>{{item.publishedAt}}</th>
+        </tr>
+    </tbody>
+</table>
