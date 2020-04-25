@@ -8,16 +8,20 @@ import { Book } from './book.model';
 })
 export class BookService {
 
-  url:string = "http://localhost:53446/api/books";
-  Book:Book[] ;
+  url: string = "http://localhost:53446/api/books";
+  Book: Book[];
+  Books: Book;
 
-  constructor(private http:HttpClient) {}
-getAllBook(){
-  this.http.get(this.url).toPromise().then(
-    result=>{
-      this.Book = result as Book[];
-    }
-  )
-}
+  constructor(private http: HttpClient) { }
+  getAllBook() {
+    this.http.get(this.url).toPromise().then(
+      result => {
+        this.Book = result as Book[];
+      }
+    )
+  }
+  postBook(){
+    return this.http.post(this.url,this.Books);
+  }
 
 }

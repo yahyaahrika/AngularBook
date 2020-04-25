@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { BookService } from '../book.service';
 
 @Component({
   selector: 'app-book-item',
@@ -8,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookItemComponent implements OnInit {
 
-  constructor() { }
+  constructor(public bookService: BookService) { }
 
   ngOnInit(): void {
+    this.bookService.Books = {
+      id: 0,
+      title: null,
+      PublishedAt: null,
+      author: null,
+      NumberOfPages: 0
+
+    }
   }
+  submit(){
+    this.bookService.postBook().subscribe(res=>{
+      this.bookService.getAllBook();
+    },
+    error=>{
+      console.log(error);
+    })
+  }
+
 
 }
