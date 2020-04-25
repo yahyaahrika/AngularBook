@@ -14,5 +14,12 @@ export class BookListComponent implements OnInit {
   ngOnInit(): void {
     this.service.getAllBook();
   }
-
+  fillData(item){
+    console.log(item);
+    this.service.Books.id=item.id;
+    this.service.Books.author=item.author;
+    this.service.Books.title=item.title;
+    this.service.Books.NumberOfPages=item.numberOfPages;
+    this.service.Books.PublishedAt=item.publishedAt;
+  }
 }

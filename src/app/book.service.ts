@@ -13,6 +13,7 @@ export class BookService {
   Books: Book;
 
   constructor(private http: HttpClient) { }
+  
   getAllBook() {
     this.http.get(this.url).toPromise().then(
       result => {
@@ -20,8 +21,11 @@ export class BookService {
       }
     )
   }
-  postBook(){
-    return this.http.post(this.url,this.Books);
+  postBook() {
+    return this.http.post(this.url, this.Books);
+  }
+  putBook() {
+    return this.http.put(this.url + "/" + this.Books.id, this.Books);
   }
 
 }

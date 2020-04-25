@@ -1,7 +1,9 @@
+
 <form ngForm="form" (submit)="submit()">
     
 <div class="form-group">
-    <label for="Title">title: </label>
+    <input type="hidden" name="id">
+    <label (click)="Mess();" for="Title">title: </label>
     <input type="text" name="title" [(ngModel)]="bookService.Books.title" class="form-control">
 </div>
 <div class="form-group">

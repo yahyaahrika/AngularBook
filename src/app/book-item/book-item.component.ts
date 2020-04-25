@@ -22,14 +22,24 @@ export class BookItemComponent implements OnInit {
 
     }
   }
-  submit(){
-    this.bookService.postBook().subscribe(res=>{
-      this.bookService.getAllBook();
-    },
-    error=>{
-      console.log(error);
-    })
-  }
+  submit() {
+    if (this.bookService.Books.id == 0) {
+      this.bookService.postBook().subscribe(res => {
+        this.bookService.getAllBook();
+      },
+        error => {
+          console.log(error);
+        })
+    }
+    else {
+      this.bookService.putBook().subscribe(res => {
+        this.bookService.getAllBook();
+      }, err => {
+        console.error(err);
+      });
+    }
 
+  }
+ 
 
 }
