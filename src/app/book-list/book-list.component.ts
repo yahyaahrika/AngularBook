@@ -22,4 +22,11 @@ export class BookListComponent implements OnInit {
     this.service.Books.NumberOfPages=item.numberOfPages;
     this.service.Books.PublishedAt=item.publishedAt;
   }
+  deteleBook(id){
+    console.log(id);
+    this.service.deteleBook(id).subscribe(res=>{
+      this.service.getAllBook()
+
+    });
+  }
 }

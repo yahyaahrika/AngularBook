@@ -4,6 +4,7 @@
         <th>Author</th>
         <th>Number Of Pages</th>
         <th>Date</th>
+        <th>#</th>
     </thead>
     <tbody>
         <tr *ngFor="let item of service.Book" (click)="fillData(item)">
@@ -11,6 +12,7 @@
             <th>{{item.author}}</th>
             <th>{{item.numberOfPages}}</th>
             <th>{{item.publishedAt}}</th>
+            <th><input (click)="deteleBook(item.id)" type="button" class="btn btn-danger" value="Delete"></th>
         </tr>
     </tbody>
 </table>
